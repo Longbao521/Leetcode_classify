@@ -88,4 +88,74 @@ MinStack.prototype.getMin = function() {
  * var param_4 = obj.getMin()
  */
 ```
+---
+但是上面的运行成绩惨不忍睹，有没有优化方法？显然是有的，显然这道题中复杂度最高的就是getMin(),其余不过是一步操作而已，刚开始我故步自封于如何快速查找最小值，而忽略了它初始状态是一个空栈，后面每一次操作都会更新最小值，而不需要到了求getMIN()财去查找
+所以更新为：
+```javascript
+var MinStack = function() {
+  this.stack = [];
+  this.min = Number.MAX_VALUE;
+};
+
+/**
+ * @param {number} x
+ * @return {void}
+ */
+MinStack.prototype.push = function(x) {
+  // update 'min'
+  const min = this.min;
+  if (x < this.min) {
+    this.min = x;
+  }
+  return this.stack.push(x - min);
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+  const item = this.stack.pop();
+  const min = this.min;
+
+  if (item < 0) {
+    this.min = min - item;
+    return min;
+  }
+  return item + min;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+  const item = this.stack[this.stack.length - 1];
+  const min = this.min;
+
+  if (item < 0) {
+    return min;
+  }
+  return item + min;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+  return this.min;
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(x)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+```
+
+----
+**[leetCode分类刷题](https://github.com/Longbao521/Leetcode_classify) &emsp; 该地址长期、每周更新LeetCode分类刷题**
+
 **参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

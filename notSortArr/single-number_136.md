@@ -36,3 +36,8 @@ var singleNumber = function(nums) {
   return reslut;
 };
 ```
+
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

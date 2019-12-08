@@ -24,6 +24,7 @@ for (int i = 0; i < len; i++) {
 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  
+
 #### 思路：双指针
 
        1.开始时。两个指针指向第一个数字
@@ -45,3 +46,9 @@ for (int i = 0; i < len; i++) {
         return arr.length=slowP+1;
   }
 ```
+
+
+**[leetCode分类刷题](https://github.com/Longbao521/Leetcode_classify) &emsp; 该地址长期、每周更新LeetCode分类刷题**
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

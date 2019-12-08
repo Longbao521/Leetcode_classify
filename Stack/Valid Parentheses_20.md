@@ -90,3 +90,8 @@ Problem3: [1021. 删除最外层的括号](https://leetcode-cn.com/problems/remo
       2.如果有多个匹配字段，如解析HTMl或XML标记，因匹配类型过多，可以采用Map哈希表，存储匹配类型
          如:const mapper = {'{': "}","[": "]","(": ")"};
  
+
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

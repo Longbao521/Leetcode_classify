@@ -48,3 +48,8 @@ var maxProfit = function(prices) {
     return max;
 }
 ```
+
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

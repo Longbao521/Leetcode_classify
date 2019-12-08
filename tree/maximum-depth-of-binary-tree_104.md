@@ -66,3 +66,9 @@ var maxDepth = function(root){
     return depth;
 }
 ```
+
+----
+**[leetCode分类刷题](https://github.com/Longbao521/Leetcode_classify) &emsp; 该地址长期、每周更新LeetCode分类刷题**
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

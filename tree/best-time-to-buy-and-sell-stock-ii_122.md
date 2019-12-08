@@ -61,3 +61,8 @@ var maxProfit = function(prices) {
 };
 ```
 **&emsp;&emsp;这种执行用时要比上面高，但是在内存消耗上有所提升，整体差别不大，但是下面的明显简洁**
+
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

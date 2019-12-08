@@ -1,5 +1,5 @@
->>53.最大子序和
-给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+# 53.最大子序和
+>>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 示例:
 输入: [-2,1,-3,4,-1,2,1,-5,4],
 输出: 6
@@ -37,13 +37,12 @@
 **5.分治法**
 ###### &emsp;分治法采用树的思想进行求解
 >>我们把数组nums以中间位置（m)分为左（left)右(right)两部分. 那么有， left = nums[0]...nums[m - 1] 和 right = nums[m + 1]...nums[n-1]
-
 最大子序列和的位置有以下三种情况：
-
 5.1.考虑中间元素nums[m], 跨越左右两部分，这里从中间元素开始，往左求出后缀最大，往右求出前缀最大, 保持连续性。
 5.2.不考虑中间元素，最大子序列和出现在左半部分，递归求解左边部分最大子序列和
 5.3.不考虑中间元素，最大子序列和出现在右半部分，递归求解右边部分最大子序列和
 分别求出三种情况下最大子序列和，三者中最大值即为最大子序列和。
+
 ![分治法示意图](../jpg/maximum-sum-subarray-divideconquer.png)
 
 ```javascript
@@ -93,3 +92,42 @@ function maxSubArray_2(arr){
     }
  }
  ```
+
+ ```javascript
+ function helper(list, m, n) {
+  if (m === n) return list[m];
+  let sum = 0;
+  let lmax = -Number.MAX_VALUE;
+  let rmax = -Number.MAX_VALUE;
+  const mid = ((n - m) >> 1) + m;
+  const l = helper(list, m, mid);
+  const r = helper(list, mid + 1, n);
+  for (let i = mid; i >= m; i--) {
+    sum += list[i];
+    if (sum > lmax) lmax = sum;
+  }
+
+  sum = 0;
+
+  for (let i = mid + 1; i <= n; i++) {
+    sum += list[i];
+    if (sum > rmax) rmax = sum;
+  }
+
+  return Math.max(l, r, lmax + rmax);
+}
+
+function LSS(list) {
+  return helper(list, 0, list.length - 1);
+}
+ ```
+
+
+
+
+
+
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)

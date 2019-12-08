@@ -66,3 +66,7 @@ var merge=function(nums1,m,nums2,n){
 }
 ```
 
+
+
+**参考资料**
+&emsp;&emsp;[leetcode题解](https://github.com/azl397985856/leetcode)
