@@ -1,17 +1,11 @@
-var majorityElement = function(nums) {
-    let count = 1;
-    let majority = nums[0];
-    for(let i = 1; i < nums.length; i++) {
-        if (count === 0) {
-            majority = nums[i];
+var hammingWeight = function(n) {
+    var result=0;
+    for(let i=0;i<32;i++){
+        if(n&1){
+            result++;
         }
-        if (nums[i] === majority) {
-            count ++;
-        } else {
-            count --;
-        }
-        console.log(majority+":"+count)
+        n=n>>>1
     }
-    return majority;
+    return result;
 };
-majorityElement([2,3,2,1,3,1,3,2,3,2]);
+hammingWeight(00000000000000000000000000001011);
