@@ -1,11 +1,16 @@
-var hammingWeight = function(n) {
-    var result=0;
-    for(let i=0;i<32;i++){
-        if(n&1){
-            result++;
+var moveZeroes = function(nums) {
+    var result=[];
+    var count=0;
+    for(let elem of nums){
+        if(elem){
+            result.push(elem);
+        }else{
+            count++;
         }
-        n=n>>>1
+    }
+    for(let i=0;i<count;i++){
+        result.push(0);
     }
     return result;
-};
-hammingWeight(00000000000000000000000000001011);
+ };
+console.log(moveZeroes([0,1,0,3,12]));

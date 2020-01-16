@@ -25,14 +25,24 @@
 + 两个数位置之差不大于k
 
 #### 思路
-+ 采用滑动块方法，利用长度为k的滑块一直往右查找
++ 采用哈希表，将位置记录下来
 
 #### 解法
 ```javascript
 var containsNearbyDuplicate = function(nums, k) {
-    for(let i=0;i<nums.length-k;i++){
-        
+    var record=new Map();
+    for(let i=0;i<nums.length;i++){
+        let preIdx=record.get(nums[i]);
+        if(preIdx=== undefined){
+            record.set(nums[i],i);
+        }else if(i-preIdx<=k){
+            return true;
+        }else{
+            record.set(nums[i],i);
+            continue;
+        }
     }
+    return false;
 };
 ```
 
